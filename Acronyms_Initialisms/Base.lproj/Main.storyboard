@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for acronym or initialism" translatesAutoresizingMaskIntoConstraints="NO" id="Hdk-q6-JQy">
+                                <rect key="frame" x="0.0" y="40" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="CjG-VR-997"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dvR-y0-f5v">
+                                <rect key="frame" x="0.0" y="84" width="600" height="516"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="nAF-7s-LQF"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="BbV-yq-DCF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dvR-y0-f5v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1Cx-f0-LKh"/>
+                            <constraint firstItem="Hdk-q6-JQy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="DAD-jN-yw3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dvR-y0-f5v" secondAttribute="trailing" constant="-20" id="MNP-C9-Mz3"/>
+                            <constraint firstItem="Hdk-q6-JQy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="OSf-um-ZzA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hdk-q6-JQy" secondAttribute="trailing" constant="-20" id="QGh-fG-Dzx"/>
+                            <constraint firstItem="dvR-y0-f5v" firstAttribute="top" secondItem="Hdk-q6-JQy" secondAttribute="bottom" id="ivo-qp-7TK"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dvR-y0-f5v" secondAttribute="bottom" id="kAv-l7-Vfj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aiSearchBar" destination="Hdk-q6-JQy" id="sF1-qh-HdA"/>
+                        <outlet property="aiTableView" destination="dvR-y0-f5v" id="hGE-XG-pwd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="495" y="306"/>
         </scene>
     </scenes>
 </document>
